@@ -40,7 +40,8 @@
     "shelljs": "^0.8.1",
     "tracer": "^0.8.11",
     "url-join": "^4.0.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.3",
@@ -66,7 +67,9 @@
     "report": "nyc report --reporter=html",
     "posttest": "cross-env NODE_ENV=test node test/posttest.js",
     "lint": "eslint .",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": ">= 9.0.0"
@@ -80,5 +83,6 @@
     "files": [
       "test/**/*.test.js"
     ]
-  }
+  },
+  "snyk": true
 }
